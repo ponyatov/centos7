@@ -1,0 +1,5 @@
+code meld doxygen
+build-essential
+syslinux isolinux xorriso xorriso-tcltk
+virtualbox-6.1
+genisoimage

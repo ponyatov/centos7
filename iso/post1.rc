@@ -1,0 +1,26 @@
+#!/bin/sh
+echo OEM Postinstall... post1
+
+echo VirtualBox Integration
+
+groupadd vboxsf ; usermod -a -G vboxsf user
+# yum -y install kernel-devel kernel-headers gcc
+#  mount /dev/sr0 /mnt && /mnt/VBoxLinuxAdditions.run
+# umount /dev/sr0 ; eject
+
+echo GUI install
+
+# yum -y install @x11
+yum -y install @xfce firefox
+systemctl set-default graphical.target
+# systemctl isolate graphical.target
+
+echo netboot/OEM server setup
+
+yum -y install dnsmasq
+systemctl stop dnsmasq ; systemctl disable dnsmasq
+systemctl stop firewalld ; systemctl disable firewalld
+
+echo export .rpm packages as local repo
+
+yum -y install vsftpd createrepo yum-utils

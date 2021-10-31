@@ -1,0 +1,10 @@
+PROJECT_NAME           = "centos7"
+PROJECT_BRIEF          = "custom CentOS 7 installer"
+PROJECT_LOGO           = doc/logo.png
+OUTPUT_DIRECTORY       =
+WARN_IF_UNDOCUMENTED   = NO
+INPUT                  = README.md src doc
+RECURSIVE              = YES
+USE_MDFILE_AS_MAINPAGE = README.md
+HTML_OUTPUT            = docs
+GENERATE_LATEX         = NO

@@ -1,0 +1,12 @@
+*~
+*.swp
+*.log
+
+/docs/
+/centos7/
+
+__pycache__/
+
+/iso/
+
+!.gitignore

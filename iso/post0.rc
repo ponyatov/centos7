@@ -1,0 +1,14 @@
+#!/bin/sh
+echo OEM Postinstall... post0
+
+echo system update
+
+yum -y update
+yum -y install epel-release
+yum -y update
+
+yum -y install mc curl git make bzip2
+
+echo next: post1.rc
+sync
+reboot
