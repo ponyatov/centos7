@@ -221,7 +221,7 @@ MERGE += .vscode bin doc lib src tmp
 .PHONY: shadow
 shadow:
 	git push -v
-	git checkout $@
+	git checkout $(SHADOW)
 	git pull -v
 
 .PHONY: dev
@@ -230,13 +230,13 @@ dev:
 	git checkout $@
 	git pull -v
 	git checkout $(SHADOW) -- $(MERGE)
-	$(MAKE) doxy ; git add -f docs
+#	$(MAKE) doxy ; git add -f docs
 
 .PHONY: release
 release:
 	git tag $(NOW)-$(REL)
 	git push -v --tags
-	$(MAKE) shadow
+	$(MAKE) $(SHADOW)
 
 .PHONY: zip
 ZIP = $(TMP)/$(MODULE)_$(BRANCH)_$(NOW)_$(REL).src.zip
